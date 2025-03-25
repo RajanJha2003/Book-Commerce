@@ -24,4 +24,16 @@ public class UserImp implements UserOperations {
 		return new UserDAO().login(email, password);
 	}
 
+	@Override
+	public boolean updateProfile(UserPojo us) {
+		// TODO Auto-generated method stub
+		return new UserDAO().updateProfile(us);
+	}
+
+	@Override
+	public boolean checkPassword(int id, String ps) {
+		// TODO Auto-generated method stub
+		return new UserDAO().checkPassword(id, ps);
+	}
+
 }
