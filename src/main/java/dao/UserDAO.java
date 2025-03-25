@@ -137,4 +137,28 @@ public class UserDAO implements UserOperations {
 		return f;
 	}
 
+	@Override
+	public boolean forgotPassword(String email, String phno, String password) {
+		boolean f=false;
+		try {
+			String sql="update users set password=? where email=? and phno=?";
+			PreparedStatement preparedStatement = GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, password);
+			preparedStatement.setString(2, email);
+			preparedStatement.setString(3, phno);
+			
+			int i=preparedStatement.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
+	}
+
 }

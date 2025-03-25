@@ -36,4 +36,10 @@ public class UserImp implements UserOperations {
 		return new UserDAO().checkPassword(id, ps);
 	}
 
+	@Override
+	public boolean forgotPassword(String email, String phno, String password) {
+		// TODO Auto-generated method stub
+		return new UserDAO().forgotPassword(email, phno, password);
+	}
+
 }
