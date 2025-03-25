@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@include file="all_component/allCss.jsp" %>
 </head>
 <body>
-<h1>New</h1>
+<%@include file="all_component/navbar.jsp" %>
 
 </body>
 </html>
