@@ -11,4 +11,10 @@ public class UserImp implements UserOperations {
 		return false;
 	}
 
+	@Override
+	public boolean checkUser(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
