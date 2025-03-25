@@ -52,8 +52,39 @@ public class UserDAO implements UserOperations {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return f;
+	}
+
+	@Override
+	public UserPojo login(String email, String password) {
+		// TODO Auto-generated method stub
+		UserPojo us=null;
+		
+		try {
+			String sql="select * from users where email=? and password=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1,email);
+			preparedStatement.setString(2,password);
+			
+			ResultSet resultSet=preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				us=new UserPojo();
+				us.setId(resultSet.getInt(1));
+				us.setName(resultSet.getString(2));
+				us.setEmail(resultSet.getString(3));
+				us.setPhno(resultSet.getString(4));
+				us.setPassword(resultSet.getString(5));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		return us;
 	}
 
 }

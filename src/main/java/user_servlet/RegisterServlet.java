@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.UserPojo;
+import operationsImp.UserImp;
 
 import java.io.IOException;
 
@@ -34,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
 			HttpSession session=req.getSession();
 			
 			if(check!=null) {
-				UserDAO userDAO=new UserDAO();
+				UserImp userDAO=new UserImp();
 				boolean existingUser=userDAO.checkUser(email);
 				System.out.println(existingUser);
 				
