@@ -49,4 +49,14 @@
     <servlet-name>ForgotPasswordServlet</servlet-name>
     <url-pattern>/ForgotPasswordServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddBooksServelt</display-name>
+    <servlet-name>AddBooksServelt</servlet-name>
+    <servlet-class>admin_servlet.AddBooksServelt</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddBooksServelt</servlet-name>
+    <url-pattern>/AddBooksServelt</url-pattern>
+  </servlet-mapping>
 </web-app>
