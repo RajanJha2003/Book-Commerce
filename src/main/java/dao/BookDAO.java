@@ -115,7 +115,7 @@ public class BookDAO implements BookOperations {
 		// TODO Auto-generated method stub
 		boolean f=false;
 		try {
-			String sql="update books set bookName=?,author=?,price=?,bookCategory=?,status=?,isbn=? where id=?";
+			String sql="update books set bookName=?,author=?,price=?,bookCategory=?,status=?,isbn=? where bookId=?";
 			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, bookPojo.getBookName());
 			preparedStatement.setString(2, bookPojo.getAuthor());
@@ -125,6 +125,26 @@ public class BookDAO implements BookOperations {
 			preparedStatement.setString(6,bookPojo.getIsbn());
 			preparedStatement.setInt(7, bookPojo.getBookId());
 			
+			int i=preparedStatement.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
+	}
+
+	@Override
+	public boolean deleteBooks(int id) {
+		// TODO Auto-generated method stub
+		boolean f=false;
+		try {
+			String sql="delete from books where bookId=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1, id);
 			int i=preparedStatement.executeUpdate();
 			if(i==1) {
 				f=true;

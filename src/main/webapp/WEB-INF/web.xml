@@ -69,4 +69,14 @@
     <servlet-name>UpdateBooksServlet</servlet-name>
     <url-pattern>/UpdateBooksServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteBooksServlet</display-name>
+    <servlet-name>DeleteBooksServlet</servlet-name>
+    <servlet-class>admin_servlet.DeleteBooksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteBooksServlet</servlet-name>
+    <url-pattern>/DeleteBooksServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

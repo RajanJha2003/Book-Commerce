@@ -9,5 +9,6 @@ public interface BookOperations {
 	public List<BookPojo> getAllBooks();
 	public BookPojo getBookById(int id);
 	public boolean updateBooks(BookPojo bookPojo);
+	public boolean deleteBooks(int id);
 
 }

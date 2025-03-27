@@ -3,6 +3,7 @@ package operationsImp;
 import java.util.List;
 
 import dao.BookDAO;
+
 import model.BookPojo;
 import operations.BookOperations;
 
@@ -30,6 +31,12 @@ public class BookImp implements BookOperations {
 	public boolean updateBooks(BookPojo bookPojo) {
 		// TODO Auto-generated method stub
 		return new BookDAO().updateBooks(bookPojo);
+	}
+
+	@Override
+	public boolean deleteBooks(int id) {
+		// TODO Auto-generated method stub
+		return new BookDAO().deleteBooks(id);
 	}
 
 }
