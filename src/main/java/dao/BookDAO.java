@@ -1,6 +1,9 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import database.GetConnection;
 import model.BookPojo;
@@ -35,6 +38,43 @@ public class BookDAO implements BookOperations {
 			e.printStackTrace();
 		}
 		return f;
+	}
+
+	@Override
+	public List<BookPojo> getAllBooks() {
+		// TODO Auto-generated method stub
+		List<BookPojo> list=new ArrayList<BookPojo>();
+		BookPojo bookPojo=new BookPojo();
+		
+		try {
+			String sql="select * from books";
+			
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				bookPojo.setBookId(resultSet.getInt(1));
+				bookPojo.setBookName(resultSet.getString(2));
+				bookPojo.setAuthor(resultSet.getString(3));
+				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setBookCategory(resultSet.getString(5));
+				bookPojo.setStatus(resultSet.getString(6));
+				bookPojo.setPhotoName(resultSet.getString(7));
+				bookPojo.setEmail(resultSet.getString(8));
+				bookPojo.setIsbn(resultSet.getString(9));
+				
+				list.add(bookPojo);
+				
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 
 }
