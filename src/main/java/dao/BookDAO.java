@@ -157,4 +157,39 @@ public class BookDAO implements BookOperations {
 		return f;
 	}
 
+	@Override
+	public List<BookPojo> getNewBook() {
+		// TODO Auto-generated method stub
+		List<BookPojo> list=new ArrayList<BookPojo>();
+		BookPojo bookPojo=null;
+		try {
+			String sql="select * from books where bookCategory=? and status=? order by bookId desc";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, "New");
+			preparedStatement.setString(2, "Active");
+			ResultSet resultSet=preparedStatement.executeQuery();
+			int i=1;
+			while(resultSet.next() && i<=4) {
+				bookPojo=new BookPojo();
+				bookPojo.setBookId(resultSet.getInt(1));
+				bookPojo.setBookName(resultSet.getString(2));
+				bookPojo.setAuthor(resultSet.getString(3));
+				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setBookCategory(resultSet.getString(5));
+				bookPojo.setStatus(resultSet.getString(6));
+				bookPojo.setPhotoName(resultSet.getString(7));
+				bookPojo.setEmail(resultSet.getString(8));
+				bookPojo.setIsbn(resultSet.getString(9));
+				list.add(bookPojo);
+				i++;
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }

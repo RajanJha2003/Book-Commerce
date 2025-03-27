@@ -39,4 +39,10 @@ public class BookImp implements BookOperations {
 		return new BookDAO().deleteBooks(id);
 	}
 
+	@Override
+	public List<BookPojo> getNewBook() {
+		// TODO Auto-generated method stub
+		return new BookDAO().getNewBook();
+	}
+
 }
