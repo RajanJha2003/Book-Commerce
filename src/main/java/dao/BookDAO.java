@@ -122,7 +122,13 @@ public class BookDAO implements BookOperations {
 			preparedStatement.setInt(3,bookPojo.getPrice());
 			preparedStatement.setString(4, bookPojo.getBookCategory());
 			preparedStatement.setString(5,bookPojo.getStatus());
-			preparedStatement.setString(6,boo);
+			preparedStatement.setString(6,bookPojo.getIsbn());
+			preparedStatement.setInt(7, bookPojo.getBookId());
+			
+			int i=preparedStatement.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception

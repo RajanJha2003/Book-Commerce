@@ -59,4 +59,14 @@
     <servlet-name>AddBooksServelt</servlet-name>
     <url-pattern>/AddBooksServelt</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateBooksServlet</display-name>
+    <servlet-name>UpdateBooksServlet</servlet-name>
+    <servlet-class>admin_servlet.UpdateBooksServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateBooksServlet</servlet-name>
+    <url-pattern>/UpdateBooksServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
