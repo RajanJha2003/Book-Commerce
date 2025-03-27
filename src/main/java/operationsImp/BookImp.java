@@ -20,4 +20,10 @@ public class BookImp implements BookOperations {
 		return new BookDAO().getAllBooks();
 	}
 
+	@Override
+	public BookPojo getBookById(int id) {
+		// TODO Auto-generated method stub
+		return new BookDAO().getBookById(id);
+	}
+
 }

@@ -74,7 +74,40 @@ public class BookDAO implements BookOperations {
 		}
 		
 		
+		
 		return list;
+	}
+
+	@Override
+	public BookPojo getBookById(int id) {
+		// TODO Auto-generated method stub
+		BookPojo bookPojo=null;
+		try {
+			String sql="Select * from books where id=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				bookPojo=new BookPojo();
+				bookPojo.setBookId(resultSet.getInt(1));
+				bookPojo.setBookName(resultSet.getString(2));
+				bookPojo.setAuthor(resultSet.getString(3));
+				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setBookCategory(resultSet.getString(5));
+				bookPojo.setStatus(resultSet.getString(6));
+				bookPojo.setPhotoName(resultSet.getString(7));
+				bookPojo.setEmail(resultSet.getString(8));
+				bookPojo.setIsbn(resultSet.getString(9));
+				
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return bookPojo;
 	}
 
 }
