@@ -110,4 +110,25 @@ public class BookDAO implements BookOperations {
 		return bookPojo;
 	}
 
+	@Override
+	public boolean updateBooks(BookPojo bookPojo) {
+		// TODO Auto-generated method stub
+		boolean f=false;
+		try {
+			String sql="update books set bookName=?,author=?,price=?,bookCategory=?,status=?,isbn=? where id=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, bookPojo.getBookName());
+			preparedStatement.setString(2, bookPojo.getAuthor());
+			preparedStatement.setInt(3,bookPojo.getPrice());
+			preparedStatement.setString(4, bookPojo.getBookCategory());
+			preparedStatement.setString(5,bookPojo.getStatus());
+			preparedStatement.setString(6,boo);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
+	}
+
 }
