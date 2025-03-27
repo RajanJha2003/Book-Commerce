@@ -1,6 +1,7 @@
 package user_servlet;
 
 import jakarta.servlet.ServletException;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,7 +12,7 @@ import operationsImp.UserImp;
 
 import java.io.IOException;
 
-import dao.UserDAO;
+
 
 @WebServlet("/update-profile")
 public class UpdateProfileServlet extends HttpServlet {

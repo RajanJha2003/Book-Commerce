@@ -12,7 +12,7 @@ import operationsImp.BookImp;
 import java.io.IOException;
 
 
-@WebServlet("delete-books")
+@WebServlet("/delete-books")
 public class DeleteBooksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
