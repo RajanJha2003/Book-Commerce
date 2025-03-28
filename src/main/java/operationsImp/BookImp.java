@@ -2,6 +2,7 @@ package operationsImp;
 
 import java.util.List;
 
+
 import dao.BookDAO;
 
 import model.BookPojo;
@@ -49,6 +50,12 @@ public class BookImp implements BookOperations {
 	public List<BookPojo> getRecentBooks() {
 		// TODO Auto-generated method stub
 		return new BookDAO().getRecentBooks();
+	}
+
+	@Override
+	public List<BookPojo> getOldBooks() {
+		// TODO Auto-generated method stub
+		return new BookDAO().getOldBooks();
 	}
 
 }
