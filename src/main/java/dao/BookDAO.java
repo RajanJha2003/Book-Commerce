@@ -485,7 +485,24 @@ public class BookDAO implements BookOperations {
 	@Override
 	public List<CategoryPojo> getAllCategory() {
 		// TODO Auto-generated method stub
-		return null;
+		List<CategoryPojo> list=new ArrayList<CategoryPojo>();
+		try {
+			String sql="select * from category";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				CategoryPojo  categoryPojo=new CategoryPojo();
+				categoryPojo.setId(resultSet.getInt(1));
+				categoryPojo.setCategoryName(resultSet.getString(2));
+				list.add(categoryPojo);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 }
