@@ -84,7 +84,7 @@ public class BookImp implements BookOperations {
 	}
 
 	@Override
-	public List<BookPojo> oldBookDelete(String email, String category, int id) {
+	public boolean oldBookDelete(String email, String category, int id) {
 		// TODO Auto-generated method stub
 		return new  BookDAO().oldBookDelete(email, category, id);
 	}

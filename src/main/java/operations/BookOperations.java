@@ -18,7 +18,7 @@ public interface BookOperations {
 	public List<BookPojo> getAllNewBook();
 	public List<BookPojo> getAllOldBook();
 	public List<BookPojo> getBookByOld(String email,String category);
-	public List<BookPojo> oldBookDelete(String email,String category,int id);
+	public boolean oldBookDelete(String email,String category,int id);
 	public List<BookPojo> getBookBySearch(String ch);
 	public boolean createCategory(String category);
 	public List<CategoryPojo> getAllCategory();

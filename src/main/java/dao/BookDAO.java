@@ -371,14 +371,60 @@ public class BookDAO implements BookOperations {
 
 	@Override
 	public List<BookPojo> getBookByOld(String email, String category) {
-		// TODO Auto-generated method stub
-		return null;
+		List<BookPojo> list=new ArrayList<BookPojo>();
+		   try {
+			String sql="select * from books where bookCategory=? and email=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1,category);
+			preparedStatement.setString(2,email);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				BookPojo bookPojo=new BookPojo();
+				bookPojo.setBookId(resultSet.getInt(1));
+				bookPojo.setBookName(resultSet.getString(2));
+				bookPojo.setAuthor(resultSet.getString(3));
+				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setBookCategory(resultSet.getString(5));
+				bookPojo.setStatus(resultSet.getString(6));
+				bookPojo.setPhotoName(resultSet.getString(7));
+				bookPojo.setEmail(resultSet.getString(8));
+				bookPojo.setIsbn(resultSet.getString(9));
+				list.add(bookPojo);
+			
+				
+				
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+			return list;
 	}
 
 	@Override
-	public List<BookPojo> oldBookDelete(String email, String category, int id) {
+	public boolean oldBookDelete(String email, String category, int id) {
 		// TODO Auto-generated method stub
-		return null;
+		boolean f=false;
+		try {
+			String sql="delete from books where email=? and bookCategory=? and bookId=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, category);
+		    preparedStatement.setInt(3,id);
+		    
+		    int i=preparedStatement.executeUpdate();
+		    if(i==1) {
+		    	f=true;
+		    }
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
 	}
 
 	@Override
