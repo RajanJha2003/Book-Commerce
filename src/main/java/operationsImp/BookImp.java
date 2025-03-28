@@ -45,4 +45,10 @@ public class BookImp implements BookOperations {
 		return new BookDAO().getNewBook();
 	}
 
+	@Override
+	public List<BookPojo> getRecentBooks() {
+		// TODO Auto-generated method stub
+		return new BookDAO().getRecentBooks();
+	}
+
 }
