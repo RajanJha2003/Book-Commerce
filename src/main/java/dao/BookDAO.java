@@ -7,6 +7,7 @@ import java.util.List;
 
 import database.GetConnection;
 import model.BookPojo;
+import model.CategoryPojo;
 import operations.BookOperations;
 
 public class BookDAO implements BookOperations {
@@ -261,6 +262,83 @@ public class BookDAO implements BookOperations {
 		e.printStackTrace();
 	}
 		return list;
+	}
+
+	@Override
+	public List<BookPojo> getAllRecentBook() {
+		List<BookPojo> list=new ArrayList<BookPojo>();
+		   try {
+			String sql="select * from books where  status=? order by booksId desc";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			
+			preparedStatement.setString(1,"Active" );
+			ResultSet resultSet=preparedStatement.executeQuery();
+			int i=1;
+			while(resultSet.next()) {
+				BookPojo bookPojo=new BookPojo();
+				bookPojo.setBookId(resultSet.getInt(1));
+				bookPojo.setBookName(resultSet.getString(2));
+				bookPojo.setAuthor(resultSet.getString(3));
+				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setBookCategory(resultSet.getString(5));
+				bookPojo.setStatus(resultSet.getString(6));
+				bookPojo.setPhotoName(resultSet.getString(7));
+				bookPojo.setEmail(resultSet.getString(8));
+				bookPojo.setIsbn(resultSet.getString(9));
+				list.add(bookPojo);
+			
+				
+				
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+			return list;
+	}
+
+	@Override
+	public List<BookPojo> getAllNewBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BookPojo> getAllOldBook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BookPojo> getBookByOld(String email, String category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BookPojo> oldBookDelete(String email, String category, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BookPojo> getBookBySearch(String ch) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean createCategory(String category) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<CategoryPojo> getAllCategory() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
