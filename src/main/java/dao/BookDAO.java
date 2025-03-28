@@ -466,7 +466,20 @@ public class BookDAO implements BookOperations {
 	@Override
 	public boolean createCategory(String category) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean f=false;
+		try {
+			String sql="insert into category(name) values(?)";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, category);
+			int i=preparedStatement.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return f;
 	}
 
 	@Override
