@@ -40,6 +40,7 @@ public class AddOldBookServlet extends HttpServlet {
 			   bookPojo.setStatus(status);
 			   bookPojo.setPhotoName(fileName);
 			   bookPojo.setEmail(useremail);
+			   bookPojo.setIsbn(isbn);
 			   
 			   BookImp bookImp=new BookImp();
 			   boolean oldbook=bookImp.addBooks(bookPojo);
@@ -58,7 +59,7 @@ public class AddOldBookServlet extends HttpServlet {
 					session.setAttribute("failedMsg", "Failed adding books");
 					response.sendRedirect("admin/add_books.jsp");
 			   }
-			   bookPojo.setIsbn(isbn);
+			   
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
