@@ -90,5 +90,26 @@ public class CartDAO implements CartOperations {
 		}
 		return f;
 	}
+	
+	
+	public int countCart(int userId) {
+		int i=0;
+		try {
+			String sql="select * from cart where userId=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1,userId);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				i++;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		return i;
+	}
 
 }
