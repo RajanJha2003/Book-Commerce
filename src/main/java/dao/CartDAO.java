@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import database.GetConnection;
@@ -30,13 +32,40 @@ public class CartDAO implements CartOperations {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return false;
+		return f;
 	}
 
 	@Override
 	public List<CartPojo> getBookByUser(int userId) {
 		// TODO Auto-generated method stub
-		return null;
+		List<CartPojo> list=new ArrayList<CartPojo>();
+		double totalPrice=0;
+		try {
+			String sql="select * from cart where userId=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1, userId);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while(resultSet.next()) {
+				CartPojo cartPojo=new CartPojo();
+				cartPojo.setCartId(resultSet.getInt(1));
+				cartPojo.setBookId(resultSet.getInt(2));
+				cartPojo.setUserId(resultSet.getInt(3));
+				cartPojo.setBookName(resultSet.getString(4));
+				cartPojo.setAuthor(resultSet.getString(5));
+				cartPojo.setPrice(resultSet.getDouble(6));
+				totalPrice=totalPrice+resultSet.getDouble(7);
+				cartPojo.setTotalPrice(totalPrice);
+				list.add(cartPojo);
+				
+				
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	@Override
