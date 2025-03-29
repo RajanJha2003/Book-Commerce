@@ -1,6 +1,7 @@
 package admin_servlet;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,7 +13,7 @@ import operationsImp.BookImp;
 
 import java.io.File;
 import java.io.IOException;
-
+@MultipartConfig
 @WebServlet("/add-books")
 public class AddBooksServelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;

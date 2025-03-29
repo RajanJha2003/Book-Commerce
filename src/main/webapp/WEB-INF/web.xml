@@ -79,4 +79,14 @@
     <servlet-name>DeleteBooksServlet</servlet-name>
     <url-pattern>/DeleteBooksServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddOldBookServlet</display-name>
+    <servlet-name>AddOldBookServlet</servlet-name>
+    <servlet-class>user_servlet.AddOldBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddOldBookServlet</servlet-name>
+    <url-pattern>/AddOldBookServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
