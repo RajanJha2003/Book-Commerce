@@ -71,7 +71,24 @@ public class CartDAO implements CartOperations {
 	@Override
 	public boolean deleteBook(int bookId, int userId, int cartId) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean f=false;
+		try {
+			String sql="delete from cart where bookId=? and cartId=? and userId=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setInt(1, bookId);
+			preparedStatement.setInt(2, cartId);
+			preparedStatement.setInt(3, userId);
+			
+			int i=preparedStatement.executeUpdate();
+			if(i==1) {
+				f=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}
+		return f;
 	}
 
 }
