@@ -119,4 +119,14 @@
     <servlet-name>CartServlet</servlet-name>
     <url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RemoveBookCartServlet</display-name>
+    <servlet-name>RemoveBookCartServlet</servlet-name>
+    <servlet-class>user_servlet.RemoveBookCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveBookCartServlet</servlet-name>
+    <url-pattern>/RemoveBookCartServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
