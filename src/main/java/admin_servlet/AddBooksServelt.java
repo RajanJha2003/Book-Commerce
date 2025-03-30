@@ -23,7 +23,7 @@ public class AddBooksServelt extends HttpServlet {
 	   try {
 		   String bookName=request.getParameter("bookName");
 		   String author=request.getParameter("author");
-		   int price=Integer.parseInt(request.getParameter("price"));
+		   Double price=Double.parseDouble(request.getParameter("price"));
 		   String bookCategory=request.getParameter("bookCategory");
 		   String status=request.getParameter("status");
 		   Part part=request.getPart("bookImage");

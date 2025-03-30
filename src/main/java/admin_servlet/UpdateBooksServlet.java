@@ -22,7 +22,7 @@ public class UpdateBooksServlet extends HttpServlet {
 			int bookId = Integer.parseInt(req.getParameter("bookId"));
 			String bookName = req.getParameter("bookName");
 			String author = req.getParameter("author");
-			int price = Integer.parseInt(req.getParameter("price"));
+			Double price = Double.parseDouble(req.getParameter("price"));
 			String status = req.getParameter("status");
 			String bookCategory = req.getParameter("bookCategory");
 			String isbn = req.getParameter("isbn");

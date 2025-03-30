@@ -24,7 +24,7 @@ public class AddOldBookServlet extends HttpServlet {
 		try {
 			String bookName=request.getParameter("bookName");
 			   String author=request.getParameter("author");
-			   int price=Integer.parseInt(request.getParameter("price"));
+			   Double price=Double.parseDouble(request.getParameter("price"));
 			   String bookCategory="Old";
 			   String status="Active";
 			   Part part=request.getPart("bookImage");

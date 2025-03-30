@@ -4,7 +4,7 @@ public class BookPojo {
 	private int bookId;
 	private String bookName;
 	private String author;
-	private int price;
+	private Double price;
 	private String bookCategory;
 	private String status;
 	private String photoName;
@@ -34,10 +34,10 @@ public class BookPojo {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public int getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public String getBookCategory() {

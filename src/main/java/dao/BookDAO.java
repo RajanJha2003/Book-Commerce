@@ -23,7 +23,7 @@ public class BookDAO implements BookOperations {
 			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, bookPojo.getBookName());
 			preparedStatement.setString(2, bookPojo.getAuthor());
-			preparedStatement.setInt(3, bookPojo.getPrice());
+			preparedStatement.setDouble(3, bookPojo.getPrice());
 			preparedStatement.setString(4, bookPojo.getBookCategory());
 			preparedStatement.setString(5, bookPojo.getStatus());
 			preparedStatement.setString(6, bookPojo.getPhotoName());
@@ -59,7 +59,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -96,7 +96,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -122,7 +122,7 @@ public class BookDAO implements BookOperations {
 			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
 			preparedStatement.setString(1, bookPojo.getBookName());
 			preparedStatement.setString(2, bookPojo.getAuthor());
-			preparedStatement.setInt(3,bookPojo.getPrice());
+			preparedStatement.setDouble(3,bookPojo.getPrice());
 			preparedStatement.setString(4, bookPojo.getBookCategory());
 			preparedStatement.setString(5,bookPojo.getStatus());
 			preparedStatement.setString(6,bookPojo.getIsbn());
@@ -177,7 +177,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -212,7 +212,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -246,7 +246,7 @@ public class BookDAO implements BookOperations {
 			bookPojo.setBookId(resultSet.getInt(1));
 			bookPojo.setBookName(resultSet.getString(2));
 			bookPojo.setAuthor(resultSet.getString(3));
-			bookPojo.setPrice(resultSet.getInt(4));
+			bookPojo.setPrice(resultSet.getDouble(4));
 			bookPojo.setBookCategory(resultSet.getString(5));
 			bookPojo.setStatus(resultSet.getString(6));
 			bookPojo.setPhotoName(resultSet.getString(7));
@@ -281,7 +281,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -316,7 +316,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -351,7 +351,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -386,7 +386,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
@@ -447,7 +447,7 @@ public class BookDAO implements BookOperations {
 				bookPojo.setBookId(resultSet.getInt(1));
 				bookPojo.setBookName(resultSet.getString(2));
 				bookPojo.setAuthor(resultSet.getString(3));
-				bookPojo.setPrice(resultSet.getInt(4));
+				bookPojo.setPrice(resultSet.getDouble(4));
 				bookPojo.setBookCategory(resultSet.getString(5));
 				bookPojo.setStatus(resultSet.getString(6));
 				bookPojo.setPhotoName(resultSet.getString(7));
