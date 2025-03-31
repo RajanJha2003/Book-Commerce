@@ -105,8 +105,36 @@ public class OrderDAO implements OrderOperations {
 
 	@Override
 	public List<OrderPojo> getAllOrder() {
-		// TODO Auto-generated method stub
-		return null;
+		List<OrderPojo> list = new ArrayList<OrderPojo>();
+		OrderPojo o = null;
+
+		try {
+
+			String sql = "select * from book_order ";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				o = new OrderPojo();
+				o.setId(rs.getInt(1));
+				o.setOrderId(rs.getString(2));
+				o.setUserName(rs.getString(3));
+				o.setEmail(rs.getString(4));
+				o.setFulladd(rs.getString(5));
+				o.setPhno(rs.getString(6));
+				o.setBookName(rs.getString(7));
+				o.setAuthor(rs.getString(8));
+				o.setPrice(rs.getDouble(9));
+				o.setPaymentType(rs.getString(10));
+				o.setOrderStatus(rs.getString(11));
+				o.setIsbn(rs.getString(12));
+				list.add(o);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 }
