@@ -2,6 +2,8 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import database.GetConnection;
@@ -69,8 +71,36 @@ public class OrderDAO implements OrderOperations {
 
 	@Override
 	public List<OrderPojo> getBook(String email) {
+		
+		List<OrderPojo> list=new ArrayList<OrderPojo>();
+		try {
+			String sql="select * from orders where email=?";
+			PreparedStatement preparedStatement=GetConnection.getConnection().prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			ResultSet resultSet=preparedStatement.executeQuery();
+			while (resultSet.next()) {
+				OrderPojo orderPojo=new OrderPojo();
+				orderPojo.setId(resultSet.getInt(1));
+				orderPojo.setOrderId(resultSet.getString(2));
+				orderPojo.setUserName(resultSet.getString(3));
+				orderPojo.setEmail(resultSet.getString(4));
+				orderPojo.setFulladd(resultSet.getString(5));
+				orderPojo.setPhno(resultSet.getString(6));
+				orderPojo.setBookName(resultSet.getString(7));
+				orderPojo.setAuthor(resultSet.getString(8));
+				orderPojo.setPrice(resultSet.getDouble(9));
+				orderPojo.setPaymentType(resultSet.getString(10));
+				orderPojo.setOrderStatus(resultSet.getString(11));
+				orderPojo.setIsbn(resultSet.getString(12));
+				
+				list.add(orderPojo);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
-		return null;
+		return list;
 	}
 
 	@Override
