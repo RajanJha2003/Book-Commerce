@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Book Commerce:Index</title>
 <%@include file="all_component/allCss.jsp" %>
 </head>
 <body>
