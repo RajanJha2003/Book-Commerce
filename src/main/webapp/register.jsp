@@ -83,6 +83,11 @@
 
 
 	<%@include file="all_component/footer.jsp"%>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>

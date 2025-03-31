@@ -32,7 +32,7 @@
             
             %>
             <div class="col-md-4 text-right pt-1 pr-0">
-              <span style="font-size:24px">(<%=count %>>)</span>
+              <span style="font-size:24px">(<%=count %>)</span>
               <a href="checkout.jsp">
               <i class="fas fa-cart-plus fa-2x"></i>
               </a>
