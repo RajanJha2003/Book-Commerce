@@ -10,5 +10,8 @@
 <body>
 <%@include file="all_component/navbar.jsp" %>
 
+
+<%@include file="all_component/footer.jsp"%>
+
 </body>
 </html>
