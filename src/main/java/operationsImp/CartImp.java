@@ -1,8 +1,10 @@
 package operationsImp;
 
+
 import java.util.List;
 
 import dao.CartDAO;
+
 import model.CartPojo;
 import operations.CartOperations;
 
@@ -24,6 +26,9 @@ public class CartImp implements CartOperations {
 	public boolean deleteBook(int bookId, int userId, int cartId) {
 		// TODO Auto-generated method stub
 		return new CartDAO().deleteBook(bookId, userId, cartId);
+	}
+	public int countCart(int userId) {
+		return new CartDAO().countCart(userId);
 	}
 
 }
